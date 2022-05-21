@@ -1,0 +1,11 @@
+@import '~ngx-sharebuttons/themes/default';
+
+
+.color-primario {
+  background-color: #6C63FF;
+  color: white;
+}
+
+.color-primario:hover{
+  color: white;
+}

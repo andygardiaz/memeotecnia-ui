@@ -1,0 +1,29 @@
+#topbar ul {
+  margin: 0;
+  padding: 0.625rem 1.5rem;
+  list-style-type: none;
+  text-align: right;
+  background-color: #6C63FF;
+}
+
+#topbar ul li {
+  display: inline;
+  }
+
+#topbar ul li a {
+  text-decoration: none;
+  padding: .2em 1em;
+  color: #fff;
+  background-color: #6C63FF;
+}
+
+#topbar ul li a:hover {
+  color: #6C63FF;
+  background-color: #fff;
+}
+
+#topbar{
+  z-index: 10;
+  width: 100%;
+  display: inline-block;
+}

@@ -1,0 +1,45 @@
+<div class="container mb-5">
+  <h1 class="text-center mb-4">¡Crea y comparte tu meme en segundos!</h1>
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <h6 class="mt-2 mb-2 text-center">Vista previa de meme</h6>
+      <img class="img-fluid" *ngIf="meme" [src]="backend.host+meme.rutaImagen" alt="Meme en Memeotecnia">
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <h3 class="mt-5">¿Te gustó? ¡Compártelo!</h3>
+      <div class="mt-3 mb-3">
+        <span *ngIf="meme" class="text-muted">Guardado en la colección: <h5 class="d-inline"><span
+          class="badge bg-success">{{meme.coleccion.nombre}}</span></h5></span>
+      </div>
+      <div class="mt-3 mb-3">
+        <a class="btn color-primario me-4" (click)="irAPlantilla(meme.rutaOriginal)"><i class="bi bi-pencil-square me-1"></i>Usar plantilla</a>
+        <a *ngIf="meme" class="btn btn-outline-danger" [routerLink]="['/denuncia',meme.idMeme]"><i class="bi bi-flag me-1"></i>Denunciar meme</a>
+      </div>
+      <div class="mt-5">
+        <span>Enlace directo: </span>
+      </div>
+      <div class="mb-3">
+          <input class="text-line me-2 input-group-text d-inline" disabled readonly [value]="backend.front+'meme/'+idMeme"><share-buttons class="d-inline" [theme]="'default'"
+          [include]="['copy']"
+          [show]="1" [url]="backend.front+'meme/'+idMeme" [autoSetMeta]="false" [showText]="true"></share-buttons>
+        </div>
+        <div class="mt-3">
+          <span>Enlace a la imagen: </span>
+        </div>
+        <div class="mb-3">
+          <input *ngIf="meme" class="text-line me-2 input-group-text d-inline" disabled readonly [value]="backend.host+meme.rutaImagen"><share-buttons class="d-inline" [theme]="'default'"
+          [include]="['copy']"
+          [show]="1" [url]="backend.front+'meme/'+idMeme" [autoSetMeta]="false" [showText]="true"></share-buttons>
+        </div>
+        <div class="mt-5">
+          <a class="btn color-primario" target="_blank" [href]="backend.host+meme.rutaImagen"><i class="bi bi-cloud-download me-1"></i>Descargar</a>
+        </div>
+      <div class="mt-5">
+        <h6>Comparte en tu plataforma favorita</h6>
+        <share-buttons [theme]="'default'"
+          [include]="['facebook','twitter','whatsapp','linkedin','telegram','email','pinterest','reddit','tumblr','mix','viber','vk','xing','line','sms','print','copy']"
+          [show]="7" [url]="backend.front+'meme/'+idMeme" [autoSetMeta]="false"></share-buttons>
+      </div>
+    </div>
+  </div>
+</div>

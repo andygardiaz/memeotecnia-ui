@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="text-center"> ¿Algo que quieras decirnos? ¡Contáctanos!</h1>
+  <form (ngSubmit)="postContacto(contactoForm)" class="needs-validation" method="get" #contactoForm="ngForm" novalidate>
+    <div class="mt-2">
+      <label for="email" class="form-label"> Indica tu correo electrónico:</label>
+      <input email [ngClass]="validClasses(email, 'is-valid', 'is-invalid')" #email="ngModel" type="email"
+        class="form-control" id="email" name="email" [(ngModel)]="nuevoContacto.email"
+        placeholder="Ej: pepe@ejemplo.com" minlength="5" maxlength="100" required>
+      <div *ngIf="email.touched && email.invalid" class="invalid-feedback">Escriba un correo electrónico con formato
+        válido. Ej: pepe@ejemplo.com </div>
+    </div>
+    <div class="mt-2">
+      <label for="asunto" class="form-label">Asunto:</label>
+      <input [ngClass]="validClasses(asunto, 'is-valid', 'is-invalid')" #asunto="ngModel" type="text"
+        class="form-control" id="asunto" name="asunto" [(ngModel)]="nuevoContacto.asunto"
+        placeholder="Ej: Sugerencia para su sitio web" minlength="4" maxlength="100" required>
+      <div *ngIf="asunto.touched && asunto.invalid" class="invalid-feedback">Indica el motivo de tu comunicación </div>
+    </div>
+    <div class="mt-2">
+      <label for="mensaje" class="form-label">Mensaje:</label>
+      <textarea [ngClass]="validClasses(mensaje, 'is-valid', 'is-invalid')" #mensaje="ngModel" class="form-control"
+        id="mensaje" name="mensaje" [(ngModel)]="nuevoContacto.descripcion"
+        placeholder="Ej: Quiero hacer una sugerencia para vuestro sitio web. Se trata de..." minlength="20"
+        maxlength="200" required></textarea>
+      <div *ngIf="mensaje.touched && mensaje.invalid" class="invalid-feedback"> Escriba entre 20 y 2000 caracteres</div>
+    </div>
+    <button class="btn color-primario w-100 mt-4">Enviar</button>
+  </form>
+</div>

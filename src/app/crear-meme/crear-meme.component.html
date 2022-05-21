@@ -1,0 +1,65 @@
+<div class="container">
+  <h1 class="text-center mb-4">¡Crea y comparte tu meme en segundos!</h1>
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <div class="card drop-shadow">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="">Seleccionar Imagen</label>
+              <input type="file" class="form-control" accept="image/*" (change)="preview($event)">
+            </div>
+            <div class="form-group mt-2">
+              <label for="">Texto superior</label>
+              <input type="text" class="form-control" name="topText" [(ngModel)]="nuevoMeme.textoSuperior"
+                (keyup)="drawText()" minlength="1" maxlength="80">
+            </div>
+            <div class="form-group mt-2">
+              <label for="">Texto inferior</label>
+              <input type="text" class="form-control" name="buttomText" [(ngModel)]="nuevoMeme.textoInferior"
+                (keyup)="drawText()" minlength="1" maxlength="80">
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <div class="form-group mt-3">
+                  <label for="">Color de texto</label>
+                  <color-chrome (onChangeComplete)="canvasTextColor($event)"></color-chrome>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <div class="form-group mt-3">
+                  <label for="">Color de fondo</label>
+                  <color-chrome (onChangeComplete)="canvasBgColor($event)"></color-chrome>
+                </div>
+              </div>
+              <div class="ms-2 mt-3 form-check form-switch">
+                <input [(ngModel)]="nuevoMeme.privado" name="privado" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Meme privado (oculto para visitantes)</label>
+              </div>
+              <div class="mt-3">
+                <label for="coleccion"> Añadir a una colección</label>
+                <select [(ngModel)]="nuevoMeme.coleccion.idColeccion" name="coleccion" id="coleccion" class="form-select" aria-label="Default select example">
+                  <option [value]="coleccion.idColeccion" *ngFor="let coleccion of listadoColecciones">{{coleccion.nombre}}</option>
+                  <option value="0">---AÑADIR NUEVA COLECCIÓN---</option>
+                </select>
+                <input [(ngModel)]="nuevaColeccion" *ngIf="nuevoMeme.coleccion.idColeccion==0" name="nuevaColeccion" id="nuevaColeccion2" class="form-control mt-2" type="text">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <input class="btn btn-outline-danger w-100" type="reset" value="Limpiar">
+              </div>
+              <div class="col">
+                <button class="btn color-primario w-100"  (click)="downloadImg()">Crear meme ahora</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <h6 class=" mt-2 mb-2 text-center">Vista previa de meme</h6>
+      <canvas class="drop-shadow preview img-fluid" #memeCanvas width="700" height="800" style="background-color: #f9f9fd;"></canvas>
+    </div>
+  </div>
+</div>

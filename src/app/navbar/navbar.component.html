@@ -1,0 +1,64 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/"><img class="ms-5" height="40" src="assets/memeotecnia-logo-horizontal.svg" alt="memeotecnia logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="#offcanvasRight" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto me-5">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/acerca-de-memeotecnia"><i class="bi bi-lightbulb me-1"></i>¿Qué es la Memeotecnia?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/"><i class="bi bi-mortarboard-fill me-1"></i>¿Cómo funciona?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/memes-recientes"><i class="bi bi-emoji-laughing me-1"></i>Memes recientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="backend.imagenOriginal=''" routerLink="/crear-meme"><i class="bi bi-pencil-square me-1"></i>Crear un meme</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header text-center">
+      <img src="assets/memeotecnia-logo-vertical.svg" alt="memeotecnia logo">
+      <button type="button" class="btn-close text-reset mb-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body text-center">
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto me-5">
+        <li class="nav-item">
+          <a class="nav-link btn" aria-current="page" routerLink="/acerca-de-memeotecnia"><i class="bi bi-lightbulb me-1"></i>¿Qué es la Memeotecnia?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/"><i class="bi bi-mortarboard-fill me-2"></i>¿Cómo funciona?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn" routerLink="/memes-recientes"><i class="bi bi-emoji-laughing me-1"></i>Memes recientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/crear-meme"><i class=" bi bi-pencil-square me-1"></i>Crear un meme</a>
+      </ul>
+      <div class=" container social col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="mb-0 mt-4">¡Estamos en redes sociales!</h5>
+        <ul class="list-unstyled d-flex justify-content-between mt-3">
+          <li>
+            <a href="https://www.facebook.com/Memeotecnia" class="text-black"><i class="bi bi-facebook"></i></a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com/Memeotecnia" class="text-black"><i class="bi bi-twitter"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/Memeotecnia" class="text-black"><i class="bi bi-instagram"></i></a>
+          </li>
+          <li>
+            <a href="https://t.me/Memeotecnia" class="text-black"><i class="bi bi-telegram"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

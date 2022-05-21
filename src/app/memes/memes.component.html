@@ -1,0 +1,41 @@
+<div class="container">
+  <h2 class="text-center mb-3">Memes más recientes para compartir</h2>
+  <form class="d-flex">
+    <input name="filtroBusqueda"[(ngModel)]="filtroBusqueda" class="form-control me-2" type="search" placeholder="Buscar una colección: (Ej: Biología)"
+      aria-label="Search">
+  </form>
+  <div class="text-center">
+    <button routerLink="/crear-meme" class="btn color-primario mt-5 mb-5"><i class="bi bi-image me-1"></i>Subir mi imagen</button>
+  </div>
+  <div>
+    <button (click)="filtraColeccion(coleccion.idColeccion)" *ngFor="let coleccion of listadoColecciones |filtroMeme:filtroBusqueda" class="btn btn-outline-{{coleccion.color}} me-2 mb-2">{{coleccion.nombre}}</button>
+  </div>
+</div>
+<div class="container container-cards">
+  <div class="row">
+    <div *ngFor="let meme of listadoMemes" class="col-md-4 col-sm-12">
+      <div *ngIf="coleccionSeleccionada==meme.coleccion.idColeccion&&!meme.privado" class="card mb-5">
+        <img [src]="backend.host+meme.rutaImagen" class="card-img-top" alt="Meme en Memeotecnia">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <div class="row">
+            <div class="col w-100">
+              <a class="btn color-primario me-4" (click)="irAPlantilla(meme.rutaOriginal)"><i class="bi bi-pencil-square me-1"></i>Usar plantilla</a>
+              <!--<button type="button" class="btn color-primario me-4"><a routerLink="/crear-meme"></a><i class="bi bi-pencil-square me-1"></i>Usar esta plantilla</button>-->
+            </div>
+            <div class="col w-100">
+              <!--<button type="button" class="btn btn-outline-success"><a routerLink="/crear-meme"></a><i class="bi bi-share me-1"></i>Compartir meme</button>-->
+              <a class="btn btn-outline-success" [routerLink]="['/meme',meme.idMeme]"><i class="bi bi-share me-1"></i>Compartir meme</a>
+            </div>
+          </div>
+          </div>
+        <div class="card-footer">
+          <span class="text-muted">Guardado en la colección: <h5 class="d-inline"><span class="badge rounded-pill bg-secondary">{{meme.coleccion.nombre}}</span></h5></span>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div class="text-center">
+    <button routerLink="/crear-meme" class="btn color-primario mt-4 mb-4" type="button"><i class="bi bi-image me-1"></i>¡Usa tu imagen!</button>
+  </div>
+</div>

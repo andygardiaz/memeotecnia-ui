@@ -1,0 +1,17 @@
+.container{
+  margin-top: 150px;
+}
+
+@media (max-width: 768px) {
+  .preview{
+    width: 700;
+    height: 800;
+  }
+}
+
+@media (min-width: 768px) {
+  .preview{
+    width: 300;
+    height: 300;
+  }
+}
